@@ -9,7 +9,7 @@ ministrado pela [RocketSeat](https://rocketseat.com.br/)**
 
 # API
 
-## Repositories
+### Repositories
 
 -   **Listar repositorios**
 
@@ -66,7 +66,7 @@ ministrado pela [RocketSeat](https://rocketseat.com.br/)**
 {}
 ```
 
-## Likes
+### Likes
 
 -   **Curtir repositorio**
 
