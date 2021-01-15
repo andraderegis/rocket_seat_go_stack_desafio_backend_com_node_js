@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../app');
-const { uuid } = require('uuidv4');
+const { v4: uuid } = require('uuid');
 
 describe('Tests for Likes Route', () => {
     it('Should be able to give a like to the repository', async () => {
