@@ -14,7 +14,7 @@ class RepositoriesRoute {
 
         this._router.post('/', (req, res) => {
             const { title, url, techs } = req.body;
-            
+
             const repository = {
                 id: uuid(),
                 title,
@@ -23,9 +23,9 @@ class RepositoriesRoute {
                 likes: 0
             }
 
-            respositories.push(respository);
+            respositories.push(repository);
 
-            return res.send(201).json(repository);
+            return res.status(201).json(repository);
         });
 
         this._router.put('/:id', (req, res) => {
