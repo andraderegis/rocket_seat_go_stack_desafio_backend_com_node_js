@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "c2e9592e-f68d-4338-93bd-7d87918ca1b5",
+		"name": "GoStack Fase1 - Desafio Back-end com NodeJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Repositories",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{goStack}}/repositories",
+							"host": [
+								"{{goStack}}"
+							],
+							"path": [
+								"repositories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Rocket Seat Go Stack Desafio Back-end com NodeJS\",\n\t\"url\":\n\t\"https://github.com/andraderegis/rocket_seat_go_stack_desafio_backend_com_node_js\",\n\t\"techs\": [\"Node.js\", \"ExpressJS\", \"Jest\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{goStack}}/repositories",
+							"host": [
+								"{{goStack}}"
+							],
+							"path": [
+								"repositories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Desafio Back-end com NodeJS\",\n\t\"url\":\n\t\"https://github.com/andraderegis/rocket_seat_go_stack_desafio_backend_com_node_js\",\n\t\"techs\": [\"Node.js\", \"ExpressJS\", \"Jest\", \"Docker\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{goStack}}/repositories/0ee5a951-ba8c-4b92-afd1-9fd1a5d9be78",
+							"host": [
+								"{{goStack}}"
+							],
+							"path": [
+								"repositories",
+								"0ee5a951-ba8c-4b92-afd1-9fd1a5d9be78"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{goStack}}/repositories/0ee5a951-ba8c-4b92-afd1-9fd1a5d9be78",
+							"host": [
+								"{{goStack}}"
+							],
+							"path": [
+								"repositories",
+								"0ee5a951-ba8c-4b92-afd1-9fd1a5d9be78"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Likes",
+			"item": [
+				{
+					"name": "Like",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{goStack}}/repositories/0ee5a951-ba8c-4b92-afd1-9fd1a5d9be78/like",
+							"host": [
+								"{{goStack}}"
+							],
+							"path": [
+								"repositories",
+								"0ee5a951-ba8c-4b92-afd1-9fd1a5d9be78",
+								"like"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
