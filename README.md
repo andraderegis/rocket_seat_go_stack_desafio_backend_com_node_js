@@ -112,7 +112,7 @@ yarn test
 </br>
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/rocketseat/bootcamp-gostack-desafios?color=%2304D361">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/andraderegis/rocket_seat_go_stack_desafio_backend_com_node_js?color=%2304D361">
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
 
