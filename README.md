@@ -1,14 +1,11 @@
 ![GoStack](https://storage.googleapis.com/golden-wind/bootcamp-gostack/header-desafios-new.png)
 
 <h2 align="center">GoStack - Desafio Back-end com NodeJS</h2>
-<br/>
 
 # Sobre
 
 **Este projeto se trata de uma API Restfull desenvolvida como desafio da Fase 1 do curso [GoStack](https://pages.rocketseat.com.br/gostack),
 ministrado pela [RocketSeat](https://rocketseat.com.br/)**
-
-</br>
 
 # API
 
@@ -49,7 +46,7 @@ ministrado pela [RocketSeat](https://rocketseat.com.br/)**
 -   **Atualizar repositorio**
 
     > As propriedades permitidas nessa operação são: title, url, techs. Elas podem ser informadas
-    > separadamente
+    > separadamente.
 
 ```
 # PUT /repositories/{id}
@@ -90,8 +87,6 @@ ministrado pela [RocketSeat](https://rocketseat.com.br/)**
 
 ```
 
-<br/>
-
 # Docker
 
 Para baixar a imagem execute o seguinte comando:
@@ -105,8 +100,6 @@ Para executar o container execute o seguinte comando::
 ```
 docker run -p 3333:3333 andradereginaldo/go_stack_desafio_backend_nodejs
 ```
-
-<br/>
 
 # Testes Funcionais
 
@@ -126,8 +119,4 @@ yarn test
   <a href="https://github.com/andraderegis/rocket_seat_go_stack_desafio_backend_com_node_js/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/andraderegis/rocket_seat_go_stack_desafio_backend_com_node_js?style=social">
   </a>
-</p>
-
-<p align="center">
-  <a href="#memo-licença">Licença</a>
 </p>
