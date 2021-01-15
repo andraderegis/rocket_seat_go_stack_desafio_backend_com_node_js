@@ -101,4 +101,33 @@ describe('Tests for Repositories Routes', () => {
         expect(updateResponse.body.likes).toEqual(expectedLikes);
         expect(updateResponse.body).toMatchObject(respositoryDataToUpdate);
     });
+
+    it('Should be able to delete the repository', async () => {
+        const respositoryDataToCreate = {
+            title: 'Desafio Back-end com NodeJS',
+            url:
+                'https://github.com/andraderegis/rocket_seat_go_stack_desafio_backend_com_node_js',
+            techs: ['Node.js', 'ExpressJS']
+        };
+
+        const createResponse = await request(app)
+            .post('/repositories')
+            .send(respositoryDataToCreate);
+
+        const response = await request(app)
+            .delete(`/repositories/${createResponse.body.id}`)
+            .expect(204);
+
+        expect(response.body).toMatchObject({});
+    });
+
+    it('Should not be able to delete a repository that does not exist', async () => {
+        const response = await request(app)
+            .delete(`/repositories/${uuid()}`)
+            .expect(400);
+
+        expect(response.body).toMatchObject({
+            error: 'Not found repository.'
+        });
+    });
 });

@@ -1,6 +1,7 @@
 const { uuid } = require('uuidv4');
 
 const respositories = [];
+const _checkRepositoriesIndex = Symbol('checkRepositoriesIndex');
 const _findRepositoriesIndex = Symbol('findRepositoriesIndex');
 
 class RepositoriesRoute {
@@ -34,11 +35,10 @@ class RepositoriesRoute {
 
             const repositoryIndex = this[_findRepositoriesIndex](id);
 
-            if (repositoryIndex < 0) {
-                return res.status(400).json({
-                    error: 'Not found repository.'
-                });
-            }
+            this[_checkRepositoriesIndex]({
+                index: repositoryIndex,
+                response: res
+            });
 
             const { title, url, techs } = req.body;
 
@@ -54,15 +54,60 @@ class RepositoriesRoute {
             return res.status(200).json(respository);
         });
 
-        this._router.delete('/:id', (req, res) => {});
+        this._router.delete('/:id', (req, res) => {
+            const { id } = req.params;
 
-        this._router.post('/:id/like', (req, res) => {});
+            const index = this[_findRepositoriesIndex](id);
+
+            this[_checkRepositoriesIndex]({
+                index,
+                response: res
+            });
+
+            respositories.splice(index, 1);
+
+            return this[_findRepositoriesIndex](id) < 0
+                ? res.status(204).send()
+                : res.status(500).send({
+                      error: `Cannot remove repository ${id}.`
+                  });
+        });
+
+        this._router.post('/:id/like', (req, res) => {
+            const { id } = req.params;
+
+            const index = this[_findRepositoriesIndex](id);
+
+            this[_checkRepositoriesIndex]({
+                index,
+                response: res
+            });
+
+            const repository = respositories[index];
+
+            const respositoryToIncrementLike = {
+                ...repository,
+                likes: repository.likes + 1
+            };
+
+            respositories[index] = respositoryToIncrementLike;
+
+            return res.status(200).send(respositoryToIncrementLike);
+        });
 
         return this._router;
     }
 
     [_findRepositoriesIndex](id) {
         return respositories.findIndex((repository) => repository.id === id);
+    }
+
+    [_checkRepositoriesIndex]({ index, response }) {
+        if (index < 0) {
+            return response.status(400).json({
+                error: 'Not found repository.'
+            });
+        }
     }
 }
 
